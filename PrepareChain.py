@@ -11,7 +11,7 @@ import MeCab
 import sqlite3
 from collections import defaultdict
 
-import sys
+import os, sys
 
 class PrepareChain(object):
     u"""
@@ -21,10 +21,11 @@ class PrepareChain(object):
     BEGIN = u"__BEGIN_SENTENCE__"
     END = u"__END_SENTENCE__"
 
-    ROOT = dirname(__file__)
-    print ROOT
-    DB_PATH = "./TextGenerator/chain.db"
-    DB_SCHEMA_PATH = "./TextGenerator/schema.sql"
+    ROOT = os.path.dirname(__file__)
+    DB_PATH = "./talk-data/chain.db"
+    DB_SCHEMA_PATH = "./talk-data/schema.sql"
+    #DB_PATH = "./" + ROOT + "/" + "chain.db"
+    #DB_SCHEMA_PATH = "./" + ROOT + "/" + "schema.sql"
 
     def __init__(self, text):
         u"""
